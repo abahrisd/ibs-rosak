@@ -25,13 +25,12 @@ class AppBarMain extends Component {
 
     getMenuList = () => {
 
-
         const menuItems = [
-            {code: 'main', name: 'Главная', color: '#5E35B1'},
-            {code: 'egrul', name: 'ЕГРЮЛ', color: '#e53935'},
-            {code: 'control', name: 'Контроль за деятельностью аккредитованных лиц', color: '#1E88E5'},
-            {code: 'checks', name: 'Проверки', color: '#43A047'},
-            {code: 'histroy', name: 'История изменений', color: '#F4511E'},
+            {code: 'main', name: 'Главная', color: '#6A1B9A'},
+            {code: 'egrul', name: 'ЕГРЮЛ', color: '#AD1457'},
+            {code: 'control', name: 'Контроль за деятельностью аккредитованных лиц', color: '#283593'},
+            {code: 'checks', name: 'Проверки', color: '#2E7D32'},
+            {code: 'histroy', name: 'История изменений', color: '#D84315'},
         ];
 
         return menuItems.map((item) => {
