@@ -1,1 +1,3 @@
 export const INCREMENT = 'INCREMENT'
+export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
+export const SET_APP_BAR_TITLE = 'SET_APP_BAR_TITLE'
