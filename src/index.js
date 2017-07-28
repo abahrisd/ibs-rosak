@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import './index.css';
-import App from './App';
+import routes from './routes'
 import registerServiceWorker from './registerServiceWorker';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Needed for onTouchTap!
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
+render(routes, document.getElementById('root'));
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
-        ReactDOM.render(<App />, document.getElementById('root'))
+    module.hot.accept('./routes', () => {
+        render(routes, document.getElementById('root'))
     })
 }
-
 
 registerServiceWorker();

@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import {Link} from 'react-router-dom'
+import './App.css'
 import {connect} from 'react-redux'
 import {toggleDrawer} from '../../AC/toggleDrawer'
 import {setAppBarTitle} from '../../AC/setAppBarTitle'
+import {menuItems} from '../../fixtures'
 
 class AppBarMain extends Component {
 
@@ -20,18 +23,11 @@ class AppBarMain extends Component {
 
     onMenuItemSelect = (titleData) => {
         this.handleClose();
-        this.props.setAppBarTitle(titleData);
+        return;
+        //this.props.setAppBarTitle(titleData);
     }
 
     getMenuList = () => {
-
-        const menuItems = [
-            {code: 'main', name: 'Главная', color: '#6A1B9A'},
-            {code: 'egrul', name: 'ЕГРЮЛ', color: '#AD1457'},
-            {code: 'control', name: 'Контроль за деятельностью аккредитованных лиц', color: '#283593'},
-            {code: 'checks', name: 'Проверки', color: '#2E7D32'},
-            {code: 'histroy', name: 'История изменений', color: '#D84315'},
-        ];
 
         return menuItems.map((item) => {
 
@@ -50,27 +46,32 @@ class AppBarMain extends Component {
                 color: item.color
             }
 
-            return <MenuItem key={item.code} style={style}
-                             onTouchTap={()=>this.onMenuItemSelect(titleData)}>{item.name}</MenuItem>
+            return <Link key={item.code} to={'/'+item.code}>
+                <MenuItem
+                    key={item.code}
+                    style={style}
+                    onTouchTap={()=>this.onMenuItemSelect(titleData)}>
+                    {item.name}
+                </MenuItem></Link>
         })
-
     }
 
     render (){
 
-        const {isDrawerOpen} = this.props;
-        const toggleDrawer = this.props.toggleDrawer;
-        const appBarTitle = this.props.appBarTitle.name;
-        const appBarColor = this.props.appBarTitle.color;
+        console.log("render bar!");
+
+        const {isDrawerOpen, toggleDrawer, appBarTitle} = this.props;
+        const name = appBarTitle.name;
+        const color = appBarTitle.color;
 
         return (
-            <div>
+            <div className="App">
                 <AppBar
-                    title={appBarTitle}
+                    title={name}
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                     onLeftIconButtonTouchTap={this.handleLeftIcon}
                     style={{
-                        backgroundColor: appBarColor
+                        backgroundColor: color
                     }}
                 />
                 <Drawer
@@ -81,15 +82,15 @@ class AppBarMain extends Component {
                 >
                     {this.getMenuList()}
                 </Drawer>
+                {this.props.children}
             </div>
         )
     }
 }
 
-
 export default connect((state)=>{
-    const {isDrawerOpen, appBarTitle} = state;
-    return {isDrawerOpen, appBarTitle}
+    const {isDrawerOpen/*, appBarTitle*/} = state;
+    return {isDrawerOpen/*, appBarTitle*/}
 }, {
     toggleDrawer,
     setAppBarTitle
