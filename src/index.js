@@ -1,7 +1,7 @@
 import {render} from 'react-dom';
 import './index.css';
 import routes from './routes'
-import registerServiceWorker from './registerServiceWorker';
+//import registerServiceWorker from './registerServiceWorker';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap!
@@ -16,4 +16,4 @@ if (module.hot) {
     })
 }
 
-registerServiceWorker();
+//registerServiceWorker();

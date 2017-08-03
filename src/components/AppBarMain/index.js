@@ -57,9 +57,6 @@ class AppBarMain extends Component {
     }
 
     render (){
-
-        console.log("render bar!");
-
         const {isDrawerOpen, toggleDrawer, appBarTitle} = this.props;
         const name = appBarTitle.name;
         const color = appBarTitle.color;
