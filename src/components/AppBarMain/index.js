@@ -8,6 +8,13 @@ import {connect} from 'react-redux'
 import {toggleDrawer} from '../../AC/toggleDrawer'
 import {setAppBarTitle} from '../../AC/setAppBarTitle'
 import {menuItems} from '../../fixtures'
+import IconButton from 'material-ui/IconButton';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import topLogo from './rosakr_top.png'
+import ContentInbox from 'material-ui/svg-icons/content/inbox';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 
 class AppBarMain extends Component {
 
@@ -31,14 +38,16 @@ class AppBarMain extends Component {
 
         return menuItems.map((item) => {
 
-            let style = {};
+            let style = {
+                textAlign: "left"
+            };
 
             if (item.code === 'control'){
-                style = {
+                style = {...style, ...{
                     whiteSpace:"wrap",
-                    lineHeight: "23px",
-                    padding: "10px 0"
-                }
+                        lineHeight: "23px",
+                        padding: "10px 0"
+                }}
             }
 
             const titleData = {
@@ -46,11 +55,29 @@ class AppBarMain extends Component {
                 color: item.color
             }
 
+            let leftIconComponent;
+            switch(item.icon){
+                case "ContentInbox":
+                    leftIconComponent = <ContentInbox/>
+                    break;
+                case "ActionGrade":
+                    leftIconComponent = <ActionGrade/>
+                    break;
+                case "ContentSend":
+                    leftIconComponent = <ContentSend/>
+                    break;
+                case "ContentDrafts":
+                    leftIconComponent = <ContentDrafts/>
+                    break;
+            }
+
             return <Link key={item.code} to={'/'+item.code}>
                 <MenuItem
                     key={item.code}
                     style={style}
-                    onTouchTap={()=>this.onMenuItemSelect(titleData)}>
+                    leftIcon={leftIconComponent?leftIconComponent:''}
+                    onTouchTap={()=>this.onMenuItemSelect(titleData)}
+                >
                     {item.name}
                 </MenuItem></Link>
         })
@@ -60,6 +87,17 @@ class AppBarMain extends Component {
         const {isDrawerOpen, toggleDrawer, appBarTitle} = this.props;
         const name = appBarTitle.name;
         const color = appBarTitle.color;
+        const style = {
+            iconElementLeft: {
+                display: "table",
+                cursor: "pointer"
+            },
+            iconElementLeftButton: {
+                margin: "10px 0 0 0",
+                display: "table-cell",
+                verticalAlign: "top"
+            }
+        };
 
         return (
             <div className="App">
@@ -67,8 +105,10 @@ class AppBarMain extends Component {
                     title={name}
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                     onLeftIconButtonTouchTap={this.handleLeftIcon}
+                    iconElementLeft={<div style={style.iconElementLeft}><IconButton style={style.iconElementLeftButton}> <NavigationMenu /> </IconButton> <img height={60} src={topLogo} alt="росаккредитация" /></div>}
                     style={{
-                        backgroundColor: color
+                        backgroundColor: color,
+                        position: "fixed"
                     }}
                 />
                 <Drawer
@@ -79,7 +119,9 @@ class AppBarMain extends Component {
                 >
                     {this.getMenuList()}
                 </Drawer>
-                {this.props.children}
+                <div className="root">
+                    {this.props.children}
+                </div>
             </div>
         )
     }

@@ -1,0 +1,42 @@
+.sertificationStatusLine_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #2B2B2B;
+    border-radius: 7px;
+    padding: 5px;
+    align-content: flex-start;
+}
+
+.sertificationStatusLine_child {
+    margin: auto;
+}
+
+.sertificationAddressLine_container {
+    /*display: flex;*/
+    flex-flow: row wrap;
+    margin: 20px 0;
+    justify-content: space-around
+}
+
+.sertificationAddressLine_child {
+    margin: 5px auto
+}
+
+.sertificationAddressLine_header {
+    font-weight: bold
+}
+
+.cardHeader {
+    font-size: 16px
+}
+
+.link {
+    color: #00B5EE;
+    cursor: pointer;
+}
+.link:hover {
+    text-decoration: underline;
+
+}

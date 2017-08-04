@@ -1,0 +1,47 @@
+/*statusLine*/
+.statusLine_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 10px;
+    /*border: 1px solid #2B2B2B;*/
+    /*border-radius: 13px;*/
+    align-content: flex-start;
+}
+
+.statusLineV_child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    /*border: 1px solid #2B2B2B;*/
+    /*border-radius: 13px;*/
+    align-content: flex-start;
+}
+
+.statusLine_child{
+    margin: auto;
+}
+
+/*addressLine*/
+.addressLine_container{
+    font-size: 15px;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.addressLine_child{
+    margin: 5px auto
+}
+
+.addressLine_header{
+    font-weight: bold
+}
+
+.statusLine_container:nth-child(4n) .statusLine_child{
+    border-right: none;
+}

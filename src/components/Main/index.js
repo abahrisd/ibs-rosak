@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Badge from 'material-ui/Badge';
 import SertificationControls from './MainTabs/SertificationControls'
+import './main.css'
+import Divider from 'material-ui/Divider';
 
 class Main extends Component {
 
@@ -42,7 +44,9 @@ class Main extends Component {
             },
             addressLine: {
                 container: {
-                    display: "flex",
+                    //display: "flex",
+                    fontSize: "15px",
+                    textAlign: "left",
                     flexFlow: "row wrap",
                     margin: "20px 0",
                     justifyContent: "space-around"
@@ -66,21 +70,63 @@ class Main extends Component {
                     Сокращенное наименование: ФБУ «РОСТЕСТ-МОСКВА»
                 </p>
 
+                <Divider/>
                 {/* Status line */}
-                <div style={styles.statusLine.container}>
-                    <div style={styles.statusLine.child}>Статус: <span style={styles.green}>Действующая</span></div>
-                    <div style={styles.statusLine.child}>Индекс риска: <span style={styles.yellow}>4,7</span></div>
-                    <div style={styles.statusLine.child}>Индекс добросовестности: <span style={styles.green}> 8</span></div>
-                    <div style={styles.statusLine.child}>Банкротство: <span style={styles.green}> Устойчивое финансовое состояние</span></div>
+                <div className={"statusLine_container"}>
+                    <div className={"statusLine_child"}>Статус: <span className={"green"}>Действующая</span></div>
+                    <div className={"statusLine_child"}>Индекс риска: <span className={"yellow"}>4,7</span></div>
+                    <div className={"statusLine_child"}>Индекс добросовестности: <span className={"green"}> 8</span></div>
+                    <div className={"statusLine_child"}>Банкротство: <span className={"green"}> Устойчивое финансовое состояние</span></div>
+                    <div className={"statusLine_child"}>Статус: <span className={"green"}>Действующая</span></div>
+                    <div className={"statusLine_child"}>Индекс риска: <span className={"yellow"}>4,7</span></div>
+                    <div className={"statusLine_child"}>Индекс добросовестности: <span className={"green"}> 8</span></div>
+                    <div className={"statusLine_child"}>Банкротство: <span className={"green"}> Устойчивое финансовое состояние</span></div>
                 </div>
+                <Divider/>
+                {/* Status line 2*/}
+                <div className={"statusLine_container"}>
+                    <div className={"statusLineV_child"}>
+                        <span>Статус:</span>
+                        <span className={"green"}>Действующая</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Индекс риска:</span>
+                        <span className={"yellow"}>4,7</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Индекс добросовестности:</span>
+                        <span className={"green"}> 8</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Банкротство:</span>
+                        <span className={"green"}> Устойчивое финансовое состояние</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Статус:</span>
+                        <span className={"green"}>Действующая</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Индекс риска:</span>
+                        <span className={"yellow"}>4,7</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Индекс добросовестности:</span>
+                        <span className={"green"}> 8</span>
+                    </div>
+                    <div className={"statusLineV_child"}>
+                        <span>Банкротство:</span>
+                        <span className={"green"}> Устойчивое финансовое состояние</span>
+                    </div>
+                </div>
+                <Divider/>
 
                 {/* Addres line */}
-                <div style={styles.addressLine.container}>
-                    <div style={styles.addressLine.child}><span style={styles.addressLine.header}>Юридический адрес:</span> 117418, ГОРОД МОСКВА, ПРОСПЕКТ НАХИМОВСКИЙ, 31</div>
-                    <div style={styles.addressLine.child}><span style={styles.addressLine.header}>Регион:</span> г. Москва</div>
-                    <div style={styles.addressLine.child}><span style={styles.addressLine.header}>Телефон:</span> +7 (495) 129-19-11, (495) 544-00-00</div>
-                    <div style={styles.addressLine.child}><span style={styles.addressLine.header}>Сайт:</span> www.rostest.ru</div>
-                    <div style={styles.addressLine.child}><span style={styles.addressLine.header}>Руководитель:</span> Бас Виктор Николаевич (ИНН 772435488542)</div>
+                <div className={"addressLine_container"}>
+                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Юридический адрес:</span> 117418, ГОРОД МОСКВА, ПРОСПЕКТ НАХИМОВСКИЙ, 31</div>
+                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Регион:</span> г. Москва</div>
+                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Телефон:</span> +7 (495) 129-19-11, (495) 544-00-00</div>
+                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Сайт:</span> www.rostest.ru</div>
+                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Руководитель:</span> Бас Виктор Николаевич (ИНН 772435488542)</div>
                 </div>
 
                 {/* Tabs */}
