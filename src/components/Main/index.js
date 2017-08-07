@@ -63,12 +63,27 @@ class Main extends Component {
         return (
             <div style={styles.mainContainer}>
                 {/* header */}
-                <div style={styles.header}>
-                    Федеральное бюджетное учреждение «Государственный региональный центр стандартизации, метрологии и испытаний в г. Москве»
+                <div style={{display: "flex"}}>
+                    <div style={{width: "50%", padding: "0 10px 0 0", textAlign: "right"}}>
+
+                        <div style={styles.header}>
+                            Федеральное бюджетное учреждение «Государственный региональный центр стандартизации, метрологии и испытаний в г. Москве»
+                        </div>
+                        <p>
+                            ФБУ «РОСТЕСТ-МОСКВА»
+                        </p>
+                    </div>
+                    <div style={{width: "50%"}}>
+                        {/* Addres line */}
+                        <div className={"addressLine_container"}>
+                            <div className={"addressLine_child"}><span className={"addressLine_header"}>Юридический адрес:</span> 117418, ГОРОД МОСКВА, ПРОСПЕКТ НАХИМОВСКИЙ, 31</div>
+                            <div className={"addressLine_child"}><span className={"addressLine_header"}>Регион:</span> г. Москва</div>
+                            <div className={"addressLine_child"}><span className={"addressLine_header"}>Телефон:</span> +7 (495) 129-19-11, (495) 544-00-00</div>
+                            <div className={"addressLine_child"}><span className={"addressLine_header"}>Сайт:</span> www.rostest.ru</div>
+                            <div className={"addressLine_child"}><span className={"addressLine_header"}>Руководитель:</span> Бас Виктор Николаевич (ИНН 772435488542)</div>
+                        </div>
+                    </div>
                 </div>
-                <p>
-                    Сокращенное наименование: ФБУ «РОСТЕСТ-МОСКВА»
-                </p>
 
                 <Divider/>
                 {/* Status line */}
@@ -82,9 +97,8 @@ class Main extends Component {
                     <div className={"statusLine_child"}>Индекс добросовестности: <span className={"green"}> 8</span></div>
                     <div className={"statusLine_child"}>Банкротство: <span className={"green"}> Устойчивое финансовое состояние</span></div>
                 </div>
-                <Divider/>
                 {/* Status line 2*/}
-                <div className={"statusLine_container"}>
+                {/*<div className={"statusLine_container"}>
                     <div className={"statusLineV_child"}>
                         <span>Статус:</span>
                         <span className={"green"}>Действующая</span>
@@ -117,17 +131,8 @@ class Main extends Component {
                         <span>Банкротство:</span>
                         <span className={"green"}> Устойчивое финансовое состояние</span>
                     </div>
-                </div>
+                </div>*/}
                 <Divider/>
-
-                {/* Addres line */}
-                <div className={"addressLine_container"}>
-                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Юридический адрес:</span> 117418, ГОРОД МОСКВА, ПРОСПЕКТ НАХИМОВСКИЙ, 31</div>
-                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Регион:</span> г. Москва</div>
-                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Телефон:</span> +7 (495) 129-19-11, (495) 544-00-00</div>
-                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Сайт:</span> www.rostest.ru</div>
-                    <div className={"addressLine_child"}><span className={"addressLine_header"}>Руководитель:</span> Бас Виктор Николаевич (ИНН 772435488542)</div>
-                </div>
 
                 {/* Tabs */}
                 <Tabs>
